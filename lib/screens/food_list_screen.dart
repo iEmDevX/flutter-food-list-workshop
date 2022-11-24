@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:food_list/entities/food_info.dart';
 import 'package:food_list/widgets/food_card_widget.dart';
@@ -17,19 +18,41 @@ class _FoodListScreenState extends State<FoodListScreen> {
   ];
 
   void onPressedOrderButton() {
-    // todo: make: Go to Order Screen, Send food details
+    // todo: Go to Order Screen, Send food details
   }
+
+  String getAmountOrder() {
+    // todo: edit this function
+    return '0';
+  }
+
+  // todo: decrease amount function
+  // todo: increase amount function
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: foods.map<Widget>((item) => FoodCardWidget(foodInfo: item)).toList(),
+        children: foods
+            .map<Widget>(
+              (item) => FoodCardWidget(
+                foodInfo: item,
+                onTabIncrease: () {},
+                onTabDecrease: () {},
+              ),
+            )
+            .toList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: onPressedOrderButton,
         tooltip: 'Go to Order Screen',
-        child: const Icon(Icons.add),
+        child: Badge(
+          badgeContent: Text(
+            getAmountOrder(),
+            style: const TextStyle(color: Colors.white),
+          ),
+          child: const Icon(Icons.shopping_cart),
+        ),
       ),
     );
   }

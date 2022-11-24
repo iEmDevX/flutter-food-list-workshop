@@ -3,7 +3,16 @@ import 'package:food_list/entities/food_info.dart';
 
 class FoodCardWidget extends StatelessWidget {
   final FoodInfo foodInfo;
-  const FoodCardWidget({super.key, required this.foodInfo});
+  // can use VoidCallback Instead of void Function()
+  final void Function() onTabIncrease;
+  final void Function() onTabDecrease;
+
+  const FoodCardWidget({
+    super.key,
+    required this.foodInfo,
+    required this.onTabIncrease,
+    required this.onTabDecrease,
+  });
 
   @override
   Widget build(BuildContext context) {
