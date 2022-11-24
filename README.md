@@ -1,16 +1,7 @@
-# food_list
+# Food List Detail
 
-A new Flutter project.
+this repository for Food List Workshop flutter
 
-## Getting Started
+for figma design[ **click here**](https://www.figma.com/file/9SR6QDReSbvn4nFigU4S6p/Store?node-id=0%3A1&t=bhGwFkLZm6fUMTjX-1 " **click here**")
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![](https://raw.githubusercontent.com/iEmDevX/flutter-food-list-workshop/master/workshop_preview.png)](https://raw.githubusercontent.com/iEmDevX/flutter-food-list-workshop/master/workshop_preview.png)
