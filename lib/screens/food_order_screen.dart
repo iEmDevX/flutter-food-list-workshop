@@ -20,7 +20,7 @@ class FoodOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Detail'),
+        title: const Text('Card Detail'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -30,17 +30,17 @@ class FoodOrderScreen extends StatelessWidget {
                 child: Column(
               children: foods.where((element) => element.amount > 0).map((e) => FoodCardAmountWidget(foodInfo: e)).toList(),
             )),
-            Divider(),
+            const Divider(),
             Row(
               children: [
-                Text('total'),
-                Spacer(),
+                const Text('total'),
+                const Spacer(),
                 Text(sum().toString() + '\$'),
               ],
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text('buy'),
+              child: const Text('buy'),
             ),
           ],
         ),

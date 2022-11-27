@@ -19,9 +19,10 @@ class FoodCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        height: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Color(0xFFEFEEEE),
+          color: const Color(0xFFEFEEEE),
         ),
         child: Row(
           children: [
@@ -33,18 +34,21 @@ class FoodCardWidget extends StatelessWidget {
                 height: 100,
               ),
             ),
+            const SizedBox(width: 8),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 17),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(foodInfo.name),
-                    SizedBox(height: 40),
-                    Text(foodInfo.price.toString()),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    foodInfo.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(foodInfo.price.toString()),
+                ],
               ),
             ),
             Column(
@@ -55,7 +59,7 @@ class FoodCardWidget extends StatelessWidget {
                     onTabIncrease();
                   },
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                       ),
@@ -63,7 +67,7 @@ class FoodCardWidget extends StatelessWidget {
                     ),
                     height: 50,
                     width: 50,
-                    child: Icon(
+                    child: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),
@@ -75,7 +79,7 @@ class FoodCardWidget extends StatelessWidget {
                     onTabDecrease();
                   },
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(15),
                       ),
@@ -83,7 +87,7 @@ class FoodCardWidget extends StatelessWidget {
                     ),
                     height: 50,
                     width: 50,
-                    child: Icon(
+                    child: const Icon(
                       Icons.remove,
                       color: Colors.white,
                     ),

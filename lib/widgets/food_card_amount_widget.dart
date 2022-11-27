@@ -32,12 +32,12 @@ class FoodCardAmountWidget extends StatelessWidget {
                 Text((foodInfo.price * foodInfo.amount).toString()),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Text(foodInfo.amount.toString()),
           ],
         ),
-        SizedBox(height: 9),
-        Divider(),
+        const SizedBox(height: 9),
+        const Divider(),
       ],
     );
   }
