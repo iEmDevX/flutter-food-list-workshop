@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:food_list/constants/image_constanst.dart';
 import 'package:food_list/entities/food_info.dart';
+import 'package:food_list/screens/food_order_screen.dart';
 import 'package:food_list/widgets/food_card_widget.dart';
 
 class FoodListScreen extends StatefulWidget {
@@ -12,22 +14,49 @@ class FoodListScreen extends StatefulWidget {
 
 class _FoodListScreenState extends State<FoodListScreen> {
   final List<FoodInfo> foods = [
-    const FoodInfo(test: 'test1'),
-    const FoodInfo(test: 'test2'),
-    const FoodInfo(test: 'test3'),
+    FoodInfo(
+      name: 'Pizza',
+      image: FoodListImage.pizza,
+      price: 10,
+    ),
+    FoodInfo(
+      name: 'dumplings',
+      image: FoodListImage.dumplings,
+      price: 199,
+    ),
+    FoodInfo(
+      name: 'pancake',
+      image: FoodListImage.pancake,
+      price: 199,
+    ),
+    FoodInfo(
+      name: 'salad',
+      image: FoodListImage.salad,
+      price: 199,
+    ),
   ];
 
   void onPressedOrderButton() {
+    //
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => FoodOrderScreen(foods: foods),
+      ),
+    );
     // todo: Go to Order Screen, Send food details
   }
 
   String getAmountOrder() {
-    // todo: edit this function
-    return '0';
+    int sum = 0;
+    for (var foodInfo in foods) {
+      sum += foodInfo.amount;
+    }
+    return sum.toString();
   }
 
-  // todo: decrease amount function
-  // todo: increase amount function
+  void onTapAmount() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +66,8 @@ class _FoodListScreenState extends State<FoodListScreen> {
             .map<Widget>(
               (item) => FoodCardWidget(
                 foodInfo: item,
-                onTabIncrease: () {},
-                onTabDecrease: () {},
+                onTabIncrease: onTapAmount,
+                onTabDecrease: onTapAmount,
               ),
             )
             .toList(),

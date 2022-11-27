@@ -18,13 +18,80 @@ class FoodCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: GestureDetector(
-        onTap: () {
-          print("test tap");
-        },
-        child: Container(
-          decoration: const BoxDecoration(color: Colors.grey),
-          child: Text(foodInfo.test),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Color(0xFFEFEEEE),
+        ),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset(
+                foodInfo.image,
+                width: 100,
+                height: 100,
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 17),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(foodInfo.name),
+                    SizedBox(height: 40),
+                    Text(foodInfo.price.toString()),
+                  ],
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    foodInfo.increaseAmount();
+                    onTabIncrease();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(15),
+                      ),
+                      color: Color(0xFF91ECA5),
+                    ),
+                    height: 50,
+                    width: 50,
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    foodInfo.decreaseAmount();
+                    onTabDecrease();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(15),
+                      ),
+                      color: Color.fromRGBO(237, 155, 155, 1),
+                    ),
+                    height: 50,
+                    width: 50,
+                    child: Icon(
+                      Icons.remove,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
